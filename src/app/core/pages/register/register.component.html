@@ -4,16 +4,17 @@
       <h2 class="text-2xl font-bold text-center text-gray-800">Registro</h2>
       <form [formGroup]="registerForm" class="mt-4">
         <div class="mb-4">
-          @if (registerForm.get('name')?.hasError('required') &&
-          registerForm.get('name')?.touched) {
-          <div class="text-red-500 text-xs mb-2">Nome é obrigatório</div>
-          }
           <app-input-float
             formControlName="name"
             inputId="inputNome"
             label="nome"
             required="true"
           ></app-input-float>
+
+          @if (registerForm.get('name')?.hasError('required') &&
+          registerForm.get('name')?.touched) {
+          <div class="text-red-500 text-xs mt-1">Nome é obrigatório</div>
+          }
         </div>
         <div class="mb-4">
           <app-input-float
@@ -21,6 +22,16 @@
             inputId="inputSenha"
             label="senha"
           ></app-input-float>
+          @if(registerForm.get('password')?.hasError('required') &&
+          registerForm.get('password')?.touched) {
+          <div class="text-red-500 text-xs mt-1">senha é obrigatória</div>
+          } @if(registerForm.get('password')?.hasError('minlength') ||
+          registerForm.get('password')?.hasError('maxlength') &&
+          registerForm.get('password')?.touched) {
+          <div class="text-red-500 text-xs mt-1">
+            senha deve ter entre 6 a 10 caracteres
+          </div>
+          }
         </div>
         <div class="mb-4">
           <app-input-float
@@ -28,6 +39,13 @@
             inputId="inputEmail"
             label="email"
           ></app-input-float>
+          @if(registerForm.get('email')?.hasError('required') &&
+          registerForm.get('email')?.touched) {
+          <div class="text-red-500 text-xs mt-1">email é obrigatório</div>
+          } @else if (registerForm.get('email')?.hasError('email') &&
+          registerForm.get('email')?.touched) {
+          <div class="text-red-500 text-xs mt-1">email inválido</div>
+          }
         </div>
         <div class="flex items-center justify-between">
           <button
