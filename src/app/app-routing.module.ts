@@ -4,7 +4,7 @@ import { RegisterComponent } from './core/pages/register/register.component';
 
 const routes: Routes = [
   {
-    path: 'register',
+    path: '',
     component: RegisterComponent,
     loadChildren: () =>
       import('./core/pages/register/module/register.module').then(
