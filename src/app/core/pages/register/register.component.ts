@@ -16,7 +16,7 @@ export class RegisterComponent implements OnInit {
   }
 
   registerForms() {
-    this.registerForm = this.formsBuilder.group({
+    const subs = (this.registerForm = this.formsBuilder.group({
       name: ['', [Validators.required]],
       email: ['', [Validators.email, Validators.required]],
       password: [
@@ -27,7 +27,7 @@ export class RegisterComponent implements OnInit {
           Validators.maxLength(10),
         ],
       ],
-    });
+    }));
   }
 
   onSubmit(): void {

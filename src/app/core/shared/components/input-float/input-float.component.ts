@@ -29,7 +29,6 @@ export class InputFloatComponent implements OnInit, ControlValueAccessor {
 
   ngOnInit(): void {
     this.changedType();
-    this.setInputValue(this.value);
   }
 
   changedType() {
@@ -50,7 +49,7 @@ export class InputFloatComponent implements OnInit, ControlValueAccessor {
     this.onTouched = fn;
   }
 
-  setInputValue(value: string) {
+  private _setInputValue(value: string) {
     this.writeValue(value);
     this.onchanged(value);
     this.onTouched();
@@ -58,6 +57,6 @@ export class InputFloatComponent implements OnInit, ControlValueAccessor {
 
   onInput(event: Event): void {
     const input = event.target as HTMLInputElement;
-    this.setInputValue(input.value);
+    this._setInputValue(input.value);
   }
 }

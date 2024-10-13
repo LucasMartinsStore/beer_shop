@@ -4,15 +4,16 @@
       <h2 class="text-2xl font-bold text-center text-gray-800">Registro</h2>
       <form [formGroup]="registerForm" class="mt-4">
         <div class="mb-4">
+          @if (registerForm.get('name')?.hasError('required') &&
+          registerForm.get('name')?.touched) {
+          <div class="text-red-500 text-xs mb-2">Nome é obrigatório</div>
+          }
           <app-input-float
             formControlName="name"
             inputId="inputNome"
             label="nome"
+            required="true"
           ></app-input-float>
-          @if (registerForm.get('nome')?.hasError('required') &&
-          registerForm.get('nome')?.touched) {
-          <div class="text-red-500">Nome é obrigatório</div>
-          }
         </div>
         <div class="mb-4">
           <app-input-float
