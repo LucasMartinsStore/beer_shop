@@ -1,13 +1,6 @@
 export interface Register {
-  email: string;
-  password: string;
-  confirmPassword: string;
+  id: number;
   name: string;
-  surname: string;
-  phone: string;
-  address: string;
-  city: string;
-  postalCode: string;
-  country: string;
-  birthDate: string;
+  password: string;
+  email: string;
 }
