@@ -5,9 +5,15 @@ import { RegisterComponent } from '../register.component';
 import { RegisterRoutingModule } from './register-routing.module';
 
 import { ReactiveFormsModule } from '@angular/forms';
+import { SharedComponentsModule } from '../../../shared/components/module/shared-components.module';
 
 @NgModule({
-  declarations: [RegisterComponent, InputFloatComponent],
-  imports: [CommonModule, RegisterRoutingModule, ReactiveFormsModule],
+  declarations: [RegisterComponent],
+  imports: [
+    CommonModule,
+    RegisterRoutingModule,
+    ReactiveFormsModule,
+    SharedComponentsModule,
+  ],
 })
 export class RegisterModule {}

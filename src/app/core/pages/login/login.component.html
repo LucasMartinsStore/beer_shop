@@ -1,1 +1,32 @@
-<p>login works!</p>
+<div class="min-h-screen flex items-center justify-center bg-gray-100">
+  <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
+    <h2 class="text-2xl font-bold mb-6 text-center">Login</h2>
+    <form>
+      <div *ngIf="successMessage" class="alert alert-success mb-4">
+        <p class="alert-success text-white text-center">{{ successMessage }}</p>
+      </div>
+      <div class="mb-4">
+        <app-input-float
+          formControlName="email"
+          inputId="inputEmail"
+          label="email"
+        ></app-input-float>
+      </div>
+      <div class="mb-6">
+        <app-input-float
+          formControlName="password"
+          inputId="inputPassword"
+          label="senha"
+        ></app-input-float>
+      </div>
+      <div class="flex items-center justify-between">
+        <button
+          type="submit"
+          class="bg-indigo-500 text-white px-4 py-2 rounded-lg hover:bg-indigo-600 focus:outline-none focus:bg-indigo-600"
+        >
+          Login
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -2,7 +2,7 @@ import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup, NonNullableFormBuilder, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { RegisterService } from './service/register.service';
-import { Router } from '@angular/router';
+import { NavigationExtras, Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -62,7 +62,10 @@ export class RegisterComponent implements OnInit, OnDestroy {
   }
 
   private _goToLogin() {
-    console.log('Navigating to login');
-    this.router.navigate(['/login']);
+    const navigationExtras: NavigationExtras = {
+      state: { message: 'Cadastro realizado com sucesso!' },
+    };
+    console.log('NavigationExtras:', navigationExtras);
+    this.router.navigate(['/login'], navigationExtras);
   }
 }
