@@ -12,6 +12,9 @@ import { NavigationExtras, Router } from '@angular/router';
 export class RegisterComponent implements OnInit, OnDestroy {
   registerForm!: FormGroup;
   isButtonDisabled = true;
+  errorMessage = '';
+
+  icon = '';
 
   private formsBuilder = inject(NonNullableFormBuilder);
   private registerService = inject(RegisterService);
@@ -44,19 +47,21 @@ export class RegisterComponent implements OnInit, OnDestroy {
 
   onSubmit(): void {
     if (this.registerForm.valid) {
-      const subs = this.registerService
-        .postRegisterUser(this.registerForm.value)
-        .subscribe(
-          (response) => {
-            console.log(response);
-            this.registerForm.reset();
-            this._goToLogin();
-          },
-          (error) => {
-            console.error(error);
+      const email = this.registerForm.get('email')?.value;
+      const subs = this.registerService.getUserByEmail(email).subscribe(
+        (existingUser) => {
+          if (existingUser) {
+            this.errorMessage = 'Email já cadastrado!';
+            console.log('Email já cadastrado!');
+          } else {
+            this.errorMessage = '';
+            this._registerUser();
           }
-        );
-
+        },
+        (error) => {
+          console.error(error);
+        }
+      );
       this._subs.add(subs);
     }
   }
@@ -65,7 +70,24 @@ export class RegisterComponent implements OnInit, OnDestroy {
     const navigationExtras: NavigationExtras = {
       state: { message: 'Cadastro realizado com sucesso!' },
     };
-    console.log('NavigationExtras:', navigationExtras);
+
     this.router.navigate(['/login'], navigationExtras);
+  }
+
+  private _registerUser() {
+    const subs = this.registerService
+      .postRegisterUser(this.registerForm.value)
+      .subscribe(
+        (response) => {
+          console.log(response);
+          this.registerForm.reset();
+          this._goToLogin();
+        },
+        (error) => {
+          console.error(error);
+        }
+      );
+
+    this._subs.add(subs);
   }
 }

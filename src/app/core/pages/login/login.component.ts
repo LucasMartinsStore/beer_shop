@@ -24,12 +24,8 @@ export class LoginComponent implements OnInit, OnDestroy {
   messageSucessRegister(): void {
     const subs = this._activatedRoute.paramMap.subscribe(() => {
       const state = window.history.state;
-      console.log('Navigation State:', state);
       if (state && state.message) {
         this.successMessage = state.message;
-        console.log('Success Message:', this.successMessage);
-      } else {
-        console.log('No navigation state found');
       }
     });
     this._subs.add(subs);

@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
-import { Inject, inject, Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 import { Register } from '../interfaces/models/register.interface';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -13,5 +13,11 @@ export class RegisterService {
 
   postRegisterUser(register: Register): Observable<Register> {
     return this.http.post<Register>(this.apiUrl, register);
+  }
+
+  getUserByEmail(email: string): Observable<Register | null> {
+    return this.http
+      .get<Register[]>(`${this.apiUrl}?email=${email}`)
+      .pipe(map((users) => (users.length > 0 ? users[0] : null)));
   }
 }

@@ -2,9 +2,12 @@
   <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
     <h2 class="text-2xl font-bold mb-6 text-center">Login</h2>
     <form>
-      <div *ngIf="successMessage" class="alert alert-success mb-4">
+      @if(successMessage){
+
+      <div class="alert alert-success mb-4">
         <p class="alert-success text-white text-center">{{ successMessage }}</p>
       </div>
+      }
       <div class="mb-4">
         <app-input-float
           formControlName="email"
@@ -26,6 +29,7 @@
         >
           Login
         </button>
+        <a class="link link-hover">Register-se</a>
       </div>
     </form>
   </div>

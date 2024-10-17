@@ -7,3 +7,17 @@ ion-input.ng-invalid.ng-touched:not(.ng-pristine),
 ion-select.ng-invalid.ng-touched:not(.ng-pristine) {
   @apply input-error bg-[#F8EAEA];
 }
+
+ion-input.ng-valid.ng-touched:not(.ng-pristine),
+ion-select.ng-valid.ng-touched:not(.ng-pristine) {
+  @apply input-info bg-[#eaf2f8];
+}
+
+ion-input.ng-invalid.ng-touched:not(.ng-pristine),
+ion-select.ng-invalid.ng-touched:not(.ng-pristine) {
+  @apply input-error bg-[#F8EAEA];
+}
+
+button:disabled {
+  @apply bg-gray-400 text-gray-700 cursor-not-allowed;
+}
