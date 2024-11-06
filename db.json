@@ -1,0 +1,45 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "John Doe",
+      "password": "password123",
+      "email": "john.doe@example.com"
+    },
+    {
+      "id": "2",
+      "name": "Jane Smith",
+      "password": "password456",
+      "email": "jane.smith@example.com"
+    },
+    {
+      "id": "f663",
+      "name": "lucas",
+      "email": "lucas@teste.com",
+      "password": "123456"
+    }
+  ],
+  "product": [
+    {
+      "id": "1",
+      "name": "Beer",
+      "price": 5.99,
+      "description": "A cold beer",
+      "image": "https://cdn.pixabay.com/photo/2016/03/31/20/51/beer-1295556_960_720.jpg"
+    },
+    {
+      "id": "2",
+      "name": "Wine",
+      "price": 15.99,
+      "description": "A glass of wine",
+      "image": "https://cdn.pixabay.com/photo/2016/11/29/12/54/alcohol-1869868_960_720.jpg"
+    },
+    {
+      "id": "3",
+      "name": "Whiskey",
+      "price": 25.99,
+      "description": "A glass of whiskey",
+      "image": "https://cdn.pixabay.com/photo/2016/03/31/20/51/beer-1295556_960_720.jpg"
+    }
+  ]
+}
