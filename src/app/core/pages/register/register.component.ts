@@ -71,7 +71,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
       state: { message: 'Cadastro realizado com sucesso!' },
     };
 
-    this.router.navigate(['/login'], navigationExtras);
+    this.router.navigate(['/'], navigationExtras);
   }
 
   private _registerUser() {

@@ -17,6 +17,12 @@
       "name": "lucas",
       "email": "lucas@teste.com",
       "password": "123456"
+    },
+    {
+      "id": "3411",
+      "name": "jax",
+      "email": "jax@teste.com",
+      "password": "123456"
     }
   ],
   "product": [
